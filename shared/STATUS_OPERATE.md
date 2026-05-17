@@ -21,7 +21,7 @@
 | `stock_collector.py` | 个股数据采集（权重/日线/板块） | tushare API | `notes/data/stock/` | ✅ |
 | `index_minutes_backfill.py` | 8 指数分钟线回填 | tushare API | `notes/data/index/minutes/` | ✅ |
 | `stock_data_backfill.py` | 1352 股批量回填 | tushare API | `notes/data/stock/` | ✅ |
-| `synthetic_base_index.py` | 合成基底指数（IH-6科创/沪深300-创头） | 权重+日线 | `notes/data/synthetic/` | ✅ |
+| `synthetic_base_index.py` | 合成基底指数（上证50-6科创/沪深300-创头） | 权重+日线 | `notes/data/synthetic/` | ✅ |
 | `market_snapshot.py` | 期货/外盘快照 | tushare API | JSON+MD | ✅ |
 | `etf_update_charts.py` | ETF 份额流+价格叠加图 | tushare API | PNG 图表 | ✅ |
 | `index_collector.py` | 领先线采集（东财 trends2） | EastMoney API | `daily_summary.csv` | ❌ 已退役 |
@@ -58,10 +58,10 @@
 - [ ] HHI 缩圈探索（权重月度 → 日度近似 → HHI 时间序列）
 - [ ] 承接失三件套探索（合成基底 + 创业板 + 广度）
 - [ ] 风格 spread 探索（先用合成基底近似，并行开发期货采集）
-- [ ] 期货数据采集脚本（`fut_daily` IH/IF 合约）
+- [ ] 期货数据采集脚本（`fut_daily` 上证50期指/沪深300期指合约）
 
 ### P2（Phase 2 — 综合切片）
-- [ ] 拔河模型残差（需 IF 日线）
+- [ ] 拔河模型残差（需沪深300日线）
 - [ ] 贡献度集中度（权重+涨跌已有）
 - [ ] ABCD 分类器（多信号综合）
 - [ ] 三段式形态（依赖 Phase 1 输出）
@@ -76,7 +76,7 @@
 ## 5. 实操遇到的问题
 
 1. **中证2000 分钟数据只有 33 天** — `idx_mins` 对 932000.CSI 返回空，用 ETF 代理(563300.SH)采集，覆盖不足。替代：日线做 HHI 分析足够，分钟线暂不覆盖中证2000。
-2. **R²=0.96 只有 16 天样本** — IF 拔河回归不具统计显著性，需 300+ 日重验证。已在 STATUS_DESIGN 标注。
+2. **R²=0.96 只有 16 天样本** — 沪深300拔河回归不具统计显著性，需 300+ 日重验证。已在 STATUS_DESIGN 标注。
 3. **等权数据无直接 API** — tushare 无等权指数接口，需手动从成分股构建。当前暂缓，优先 ATR PoC。
 4. **个股分钟线覆盖** — 1,352 股中 752 股有分钟线，头部覆盖已足够做 HHI/贡献度分析。
 
