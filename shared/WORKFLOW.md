@@ -14,7 +14,7 @@
 | 当前阶段 | 设计/讨论（Phase 0 ATR 待验证） | 阶段 A 文档更新完成，待 B 阶段 ATR 探索 | ⚠ 执行待启动 |
 | 关键产出 | STATUS_DESIGN.md（OODA + 切片定义） | ~298K CSV + 7 脚本 + DuckDB 选型 + 数据能力矩阵 | 各自独立 |
 | 卡点 | 等 ATR PoC 验证流式范式 | 期货数据未采集（影响 spread/拔河残差） | ⚠ 部分 Gap |
-| 数据能力 | 通过 bridge repo 查看 | DATA_CAPABILITY.md 完整盘点 | ✅ 执行端已透明 |
+| 数据/能力 | 依赖执行端数据 | ~298K CSV + 7 脚本 + DuckDB + MCP 258 工具 | ✅ 执行端已通过 bridge repo 透明 |
 
 ---
 
@@ -45,7 +45,7 @@
 
 - **方向**: 双向
 - **内容**: 首次对齐。执行端交付 STATUS_OPERATE.md。设计端创建 STATUS_DESIGN.md 并反馈。
-- **状态**: done
+- **状态**: completed
 - **影响**: 建立同步基线
 
 ### 事件 #002 · 2026-05-18
