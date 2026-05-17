@@ -10,7 +10,7 @@
 
 - **Phase**: Phase 0 — 数据探索 + ATR PoC
 - **当前任务**: 阶段 A 文档更新完成，待进入阶段 B ATR 探索
-- **卡点**: ATR 窗口参数待 99 决策（短窗口 3/5/7，长窗口 14/20/30）
+- **卡点**: 无阻塞项。ATR 参数已授权本地自选起点（建议 ATR3/ATR14/100天回看）
 
 ---
 
@@ -83,10 +83,10 @@
 
 ## 6. 与设计端的同步点
 
-- **上次接收**: 2026-05-17 — STATUS_DESIGN.md（OODA 架构重构 + 11 Orient 切片 + Phase 0-3 路线图 + ATR 流式准备态定义）
+- **上次接收**: 2026-05-18 — STATUS_DESIGN.md v2（术语锁定 + Block 4/5 拆分 + P3 切片新增 + ATR 参数授权本地 + Phase 0 存储建议 pandas+JSON）
 - **上次反馈**: 2026-05-18 — OPERATE_PLAN.md + DATA_CAPABILITY.md + EXPLORE_LOG.md（数据能力矩阵 + 存储选型 DuckDB + 探索路径 + 停止项）
 - **当前差距**: 设计端有更多认知文档（见顶预警模块_v0.1 / OODA日常工具卡_v1）在 STATUS_DESIGN 附录提及但执行端未见过
-- **需要设计端提供**: ATR 窗口参数确认（3/5/7 vs 14/20/30）；各 Orient 切片的详细判断规则（阈值方向）；Phase 0 验收后的优先级调整
+- **需要设计端提供**: 各 Orient 切片的详细判断规则（阈值方向）；Phase 0 验收后的优先级调整
 
 ---
 
@@ -106,7 +106,12 @@
 
 | 日期 | 决策 | 理由 |
 |------|------|------|
-| 2026-05-18 | 存储选型 DuckDB + Parquet + JSON | 列式压缩、SQL window function、ACID、渐进迁移 |
+| 2026-05-18 | 术语统一：IF/IH/IC/IM → 中文指数名 | 99 口语简称指指数非期指，避免歧义 |
+| 2026-05-18 | 期货/期权归 P3 后增切片 | 升贴水/基差/IV曲面是后期视角，不阻塞 Phase 0-2 |
+| 2026-05-18 | 风格 spread / 拔河残差用指数数据 | 不依赖期货，指数日线已有可直接计算 |
+| 2026-05-18 | ATR 参数本地自选起点 | 设计端授权：建议 ATR3/ATR14/100天，跑完看效果再定 |
+| 2026-05-18 | Phase 0 存储用 pandas+JSON | 设计端建议：算法验证先于存储层，DuckDB 后置到 Phase 1+ |
+| 2026-05-18 | 存储选型 DuckDB + Parquet + JSON（整体方向） | 列式压缩、SQL window function、ACID、渐进迁移 |
 | 2026-05-18 | 创建 OPERATE_PLAN.md / DATA_CAPABILITY.md / EXPLORE_LOG.md | 按 OODA 分离文档职责 |
 | 2026-05-18 | 6 个文件归档至 archive/ | STATUS.md 与 WORKFLOW 重叠 + 5 个已完成历史产物 |
 | 2026-05-17 | 术语对齐 online/offline → design/operate | 配合 design-operator-bridge skill 升级 |

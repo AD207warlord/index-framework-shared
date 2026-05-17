@@ -10,10 +10,10 @@
 
 | 维度 | 设计端 | 执行端 | Gap |
 |------|--------|--------|-----|
-| 框架版本 | OODA 架构 + Orient 切片 + Phase 0-3 | OODA 对齐完成，OPERATE_PLAN 已建 | ✅ 已对齐 |
+| 框架版本 | OODA 架构 + Orient 切片 + Phase 0-3 + 术语表(§9) | OODA 对齐完成 + 术语统一 | ✅ 已对齐 |
 | 当前阶段 | 设计/讨论（Phase 0 ATR 待验证） | 阶段 A 文档更新完成，待 B 阶段 ATR 探索 | ⚠ 执行待启动 |
-| 关键产出 | STATUS_DESIGN.md（OODA + 切片定义） | ~298K CSV + 7 脚本 + DuckDB 选型 + 数据能力矩阵 | 各自独立 |
-| 卡点 | 等 ATR PoC 验证流式范式 | ATR 窗口参数待 99 决策 | ⚠ 参数待定 |
+| 关键产出 | STATUS_DESIGN v2（术语锁定 + Block 4/5 拆分 + P3 切片新增） | ~298K CSV + 7 脚本 + DuckDB 选型 + 数据能力矩阵 | 各自独立 |
+| 卡点 | 等 ATR PoC 验证流式范式 | 无阻塞项（ATR 参数已授权本地自选） | ✅ 可启动 |
 | 数据/能力 | 依赖执行端数据 | ~298K CSV + 7 脚本 + DuckDB + MCP 258 工具 | ✅ 执行端已通过 bridge repo 透明 |
 
 ---
@@ -52,15 +52,22 @@
 
 - **方向**: 执行端 → 设计端
 - **内容**: 执行端完成 OODA 对齐 + 数据能力盘点 + 存储选型（DuckDB）。交付 OPERATE_PLAN.md / DATA_CAPABILITY.md / EXPLORE_LOG.md。
-- **状态**: pending
+- **状态**: completed
 - **影响**: 执行端文档体系重组完成，进入探索阶段
+
+### 事件 #003 · 2026-05-18
+
+- **方向**: 设计端 → 执行端
+- **内容**: 设计端 STATUS_DESIGN 更新至 v2。锁定术语（IF/IH=指数非期指）、期货/期权归 P3、Block 4/5 拆分早期/后期视角、ATR 参数授权本地自选（建议起点 ATR3/14/100天）、Phase 0 存储建议 pandas+JSON（DuckDB 后置）。
+- **状态**: completed
+- **影响**: 执行端无阻塞项，可立即启动 Phase B ATR 探索
 
 ---
 
 ## D. 待对齐项
 
-- **[P0]** ATR 窗口参数 — 3/5/7 vs 14/20/30 → 待 99 决策
-- **[P0]** 存储方案确认 — DuckDB 选型需设计端认可
+- **[P0]** ~~ATR 窗口参数~~ → 已 close：授权本地自选起点（设计端建议 ATR3/14/100天）
+- **[P0]** ~~存储方案确认~~ → 已 close：整体认可 DuckDB，Phase 0 先 pandas+JSON
 - **[P0]** Phase 1 优先级 — HHI / spread / 承接失 → 待 ATR PoC 后共同确定
 - **[P1]** R²=0.96 处置 — 需 300+ 日重验证
 - **[P2]** 等权数据方案 — 当前暂缓，优先 ATR PoC
